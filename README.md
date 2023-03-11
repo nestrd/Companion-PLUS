@@ -20,7 +20,7 @@ It works with:
 + Support Arduino Nano 33 BLE
 
 ### Getting Started
-1. **Download [zip file](https://github.com/liswifi/PN532SPI_Nano33BLE/archive/refs/heads/main.zip) and 
+1. **Download [zip file](https://github.com/nestrd/PN532SPI_Nano33BLE/archive/refs/heads/main.zip) and 
 extract the libraries(NDEF, PN532, PN532_SPI, PN532_HSU and PN532_I2C, PN532_SWHSU) into libraries directory of Arduino IDE.**
 2. Follow the examples of the PN532 library
 
