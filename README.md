@@ -24,19 +24,19 @@ It works with:
 extract the libraries(NDEF, PN532, PN532_SPI, PN532_HSU and PN532_I2C, PN532_SWHSU) into libraries directory of Arduino IDE.**
 2. Follow the examples of the PN532 library
 
-### Nano 33 BLE Pin SPI Connection
-VIN <- VCC
-GND <- GND
-SCK <- SCK
-D12 <- MISO
-D11 <- MOSI
-D10 <- SS
-D9 <- RTSO
-
-![Schematics](Schematics.png)
-
 ### To do
 + Fix libraries for SPI card emulation compatibility for Arduino Nano 33 BLE boards
+
+## Nano 33 BLE Pin SPI Connection
++ VIN <- VCC
++ GND <- GND
++ SCK <- SCK
++ D12 <- MISO
++ D11 <- MOSI
++ D10 <- SS
++ D9 <- RTSO
+
+![Schematics](Schematics.png)
 
 ## HSU Interface
 
