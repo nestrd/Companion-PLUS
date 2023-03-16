@@ -3,8 +3,8 @@
 // note: [NDEF library](https://github.com/Don/NDEF) is needed.
 
 #include "SPI.h"
-#include "PN532_SPI.h"
-#include "snep.h"
+#include "PN532/PN532_SPI/PN532_SPI.h"
+#include "PN532/PN532/snep.h"
 #include "NdefMessage.h"
 
 PN532_SPI pn532spi(SPI, 10);
@@ -40,7 +40,6 @@ void loop()
 
     delay(3000);
 #else
-    // it seems there are some issues to use NdefMessage to decode the received data from Android
     Serial.println("Get a message from Android");
     int msgSize = nfc.read(ndefBuf, sizeof(ndefBuf));
     if (msgSize > 0) {

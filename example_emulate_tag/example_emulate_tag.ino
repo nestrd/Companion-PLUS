@@ -1,16 +1,16 @@
-#include "PN532/PN532/emulatetag.h"
+#include "emulatetag.h"
 #include "NdefMessage.h"
 
 #if 0
 #include <SPI.h>
-#include <PN532/PN532/PN532_SPI.h>
-#include "PN532/PN532/PN532.h"
+#include <PN532_SPI.h>
+#include "PN532.h"
 
   PN532_SPI pn532spi(SPI, 10);
   EmulateTag nfc(pn532spi);
 #elif 1
-#include <PN532/PN532/PN532_HSU.h>
-#include <PN532/PN532/PN532.h>
+#include <PN532_HSU.h>
+#include <PN532.h>
 
 PN532_HSU pn532hsu(Serial1);
 EmulateTag nfc(pn532hsu);
