@@ -42,13 +42,13 @@ void PN532::PrintHex(const uint8_t *data, const uint32_t numBytes)
 #ifdef ARDUINO
     for (uint8_t i = 0; i < numBytes; i++) {
         if (data[i] < 0x10) {
-            SERIAL.print(" 0");
+            theSERIAL.print(" 0");
         } else {
-            SERIAL.print(' ');
+            theSERIAL.print(' ');
         }
-        SERIAL.print(data[i], HEX);
+        theSERIAL.print(data[i], HEX);
     }
-    SERIAL.println("");
+    theSERIAL.println("");
 #else
     for (uint8_t i = 0; i < numBytes; i++) {
         printf(" %2X", data[i]);
@@ -73,22 +73,22 @@ void PN532::PrintHexChar(const uint8_t *data, const uint32_t numBytes)
 #ifdef ARDUINO
     for (uint8_t i = 0; i < numBytes; i++) {
         if (data[i] < 0x10) {
-            SERIAL.print(" 0");
+            theSERIAL.print(" 0");
         } else {
-            SERIAL.print(' ');
+            theSERIAL.print(' ');
         }
-        SERIAL.print(data[i], HEX);
+        theSERIAL.print(data[i], HEX);
     }
-    SERIAL.print("    ");
+    theSERIAL.print("    ");
     for (uint8_t i = 0; i < numBytes; i++) {
         char c = data[i];
         if (c <= 0x1f || c > 0x7f) {
-            SERIAL.print('.');
+            theSERIAL.print('.');
         } else {
-            SERIAL.print(c);
+            theSERIAL.print(c);
         }
     }
-    SERIAL.println("");
+    theSERIAL.println("");
 #else
     for (uint8_t i = 0; i < numBytes; i++) {
         printf(" %2X", data[i]);
@@ -120,13 +120,13 @@ uint32_t PN532::getFirmwareVersion(void)
     pn532_packetbuffer[0] = PN532_COMMAND_GETFIRMWAREVERSION;
 
     if (HAL(writeCommand)(pn532_packetbuffer, 1)) {
-        return 0;
+        return 0x0;
     }
 
     // read data packet
     int16_t status = HAL(readResponse)(pn532_packetbuffer, sizeof(pn532_packetbuffer));
     if (0 > status) {
-        return 0;
+        return 0x0;
     }
 
     response = pn532_packetbuffer[0];
@@ -159,13 +159,14 @@ uint32_t PN532::readRegister(uint16_t reg)
     pn532_packetbuffer[2] = reg & 0xFF;
 
     if (HAL(writeCommand)(pn532_packetbuffer, 3)) {
-        return 0;
+        return 0x0;
     }
+    return 1;
 
     // read data packet
     int16_t status = HAL(readResponse)(pn532_packetbuffer, sizeof(pn532_packetbuffer));
     if (0 > status) {
-        return 0;
+        return 0x0;
     }
 
     response = pn532_packetbuffer[0];
@@ -194,16 +195,20 @@ uint32_t PN532::writeRegister(uint16_t reg, uint8_t val)
 
 
     if (HAL(writeCommand)(pn532_packetbuffer, 4)) {
-        return 0;
+        return 0x0;
     }
 
     // read data packet
     int16_t status = HAL(readResponse)(pn532_packetbuffer, sizeof(pn532_packetbuffer));
     if (0 > status) {
-        return 0;
+        return 0x0;
     }
 
     return 1;
+
+    response = pn532_packetbuffer[0];
+
+    return response;
 }
 
 /**************************************************************************/
@@ -401,6 +406,7 @@ bool PN532::startPassiveTargetIDDetection(uint8_t cardbaudrate) {
     if (HAL(writeCommand)(pn532_packetbuffer, 3)) {
         return 0x0;  // command failed
     }
+    return 1;
 }
 
 /**************************************************************************/
@@ -542,7 +548,7 @@ uint8_t PN532::mifareclassic_AuthenticateBlock (uint8_t *uid, uint8_t uidLen, ui
     }
 
     if (HAL(writeCommand)(pn532_packetbuffer, 10 + _uidLen))
-        return 0;
+        return 0x0;
 
     // Read the response packet
     HAL(readResponse)(pn532_packetbuffer, sizeof(pn532_packetbuffer));
@@ -552,7 +558,7 @@ uint8_t PN532::mifareclassic_AuthenticateBlock (uint8_t *uid, uint8_t uidLen, ui
     // Mifare auth error is technically byte 7: 0x14 but anything other and 0x00 is not good
     if (pn532_packetbuffer[0] != 0x00) {
         DMSG("Authentification failed\n");
-        return 0;
+        return 0x0;
     }
 
     return 1;
@@ -584,7 +590,7 @@ uint8_t PN532::mifareclassic_ReadDataBlock (uint8_t blockNumber, uint8_t *data)
 
     /* Send the command */
     if (HAL(writeCommand)(pn532_packetbuffer, 4)) {
-        return 0;
+        return 0x0;
     }
 
     /* Read the response packet */
@@ -592,7 +598,7 @@ uint8_t PN532::mifareclassic_ReadDataBlock (uint8_t blockNumber, uint8_t *data)
 
     /* If byte 8 isn't 0x00 we probably have an error */
     if (pn532_packetbuffer[0] != 0x00) {
-        return 0;
+        return 0x0;
     }
 
     /* Copy the 16 data bytes to the output buffer        */
@@ -625,12 +631,12 @@ uint8_t PN532::mifareclassic_WriteDataBlock (uint8_t blockNumber, uint8_t *data)
 
     /* Send the command */
     if (HAL(writeCommand)(pn532_packetbuffer, 20)) {
-        return 0;
+        return 0x0;
     }
 
     /* Read the response packet */
     if (0 > HAL(readResponse)(pn532_packetbuffer, sizeof(pn532_packetbuffer))) {
-        return 0;
+        return 0x0;
     }
 
     /* Check status */
@@ -638,7 +644,7 @@ uint8_t PN532::mifareclassic_WriteDataBlock (uint8_t blockNumber, uint8_t *data)
     	DMSG("Status code indicates an error: ");
     	DMSG_HEX(pn532_packetbuffer[0]);
     	DMSG("\n");
-        return 0;
+        return 0x0;
     }
 
     return 1;
@@ -708,7 +714,7 @@ uint8_t PN532::mifareclassic_WriteNDEFURI (uint8_t sectorNumber, uint8_t uriIden
     // in NDEF records
 
     // Setup the sector buffer (w/pre-formatted TLV wrapper and NDEF message)
-    uint8_t sectorbuffer1[16] = {0x00, 0x00, 0x03, len + 5, 0xD1, 0x01, len + 1, 0x55, uriIdentifier, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+    uint8_t sectorbuffer1[16] = {0x00, 0x00, 0x03, (uint8_t)(len + 5), 0xD1, 0x01, (uint8_t)(len + 1), 0x55, uriIdentifier, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
     uint8_t sectorbuffer2[16] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
     uint8_t sectorbuffer3[16] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
     uint8_t sectorbuffer4[16] = {0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7, 0x7F, 0x07, 0x88, 0x40, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};

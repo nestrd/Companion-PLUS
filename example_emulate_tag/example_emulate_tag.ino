@@ -18,7 +18,7 @@ EmulateTag nfc(pn532hsu);
 
 uint8_t ndefBuf[120];
 NdefMessage message;
-int messageSize;
+uint8_t messageSize;
 
 uint8_t uid[3] = {0x12, 0x34, 0x56};
 
