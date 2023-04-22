@@ -24,11 +24,15 @@ uint8_t uid[3] = {0x12, 0x34, 0x56};
 
 void setup()
 {
+  pn532hsu.begin();
+  delay(1000);
   Serial.begin(115200);
+  while ( !Serial ) delay(10);
+  
   Serial.println("------- Emulate Tag --------");
 
   message = NdefMessage();
-  message.addUriRecord("http://www.seeedstudio.com");
+  message.addUriRecord("https://www.google.com/");
   messageSize = message.getEncodedSize();
   if (messageSize > sizeof(ndefBuf))
   {
@@ -50,12 +54,14 @@ void setup()
   nfc.setUid(uid);
 
   nfc.init();
+  nfc.emulate();
 }
 
 void loop()
 {
+
   // uncomment for overriding ndef in case a write to this tag occured
-  //nfc.setNdefFile(ndefBuf, messageSize);
+  nfc.setNdefFile(ndefBuf, messageSize);
 
   // start emulation (blocks)
   nfc.emulate();
@@ -66,14 +72,14 @@ void loop()
     }*/
 
   // deny writing to the tag
-  // nfc.setTagWriteable(false);
+  nfc.setTagWriteable(false);
 
   if (nfc.writeOccured())
   {
     Serial.println("\nWrite occured !");
     uint8_t *tag_buf;
     uint16_t length;
-
+  
     nfc.getContent(&tag_buf, &length);
     NdefMessage msg = NdefMessage(tag_buf, length);
     msg.print();
