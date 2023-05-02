@@ -37,13 +37,13 @@ This project includes an Arduino library to use NFC technology with a PN532 modu
 + Game manager with Save/Load features to easily store game data
 
 ### Getting Started
-1. **Download [zip file](https://github.com/nestrd/Companion-PLUS/archive/refs/heads/main.zip) and 
-extract the libraries(NDEF, PN532, PN532_SPI, PN532_HSU and PN532_I2C, PN532_SWHSU) into libraries directory of Arduino IDE.**
-2. Open the Unity project in Unity 2021 LTS onwards to gain access to all game application project files
-3. Assemble peripheral device as per the below schematics and secure in 3D printed casing
-4. Connect Arduino Nano 33 BLE Sense Rev2 (microprocessor) to computer via USB and open Arduino IDE
-5. Compile and upload code to microprocessor, seal casing
-6. Secure peripheral device onto pet collar and switch on or off as required
+1. Download [zip file](https://github.com/nestrd/Companion-PLUS/archive/refs/heads/main.zip) and 
+extract the libraries(NDEF, PN532, PN532_SPI, PN532_HSU and PN532_I2C, PN532_SWHSU) into libraries directory of Arduino IDE.
+2. Open the Unity project in Unity 2021 LTS onwards to gain access to all game application project files.
+3. Assemble peripheral device as per the below schematics and secure in 3D printed casing.
+4. Connect Arduino Nano 33 BLE Sense Rev2 (microprocessor) to computer via USB and open Arduino IDE.
+5. Compile and upload code to microprocessor, seal peripheral device casing.
+6. Secure peripheral device onto pet collar and switch on or off as required (see Warnings section in Game Guide above).
 
 ### Schematics for peripheral device
 + VIN <- VCC
