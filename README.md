@@ -1,33 +1,51 @@
-## NFC library for Arduino Nano 33 BLE
+## <div align="center"> Companion PLUS! - An Extended Reality game for you and your pet </div>
 
-This is an Arduino library for PN532 to use NFC technology. It's based on 
-[Adafruit_NFCShield_I2C](http://goo.gl/pk3FdB)
-, improved by [Seeed Studio](http://goo.gl/zh1iQh), added HSU(High Speed Uart) driver by [Elechouse](http://elechouse.com), functionality for Nano 33 BLE boards by [liswifi](https://twitter.com/liswifi). 
+## Game Guide
+### Introduction
+Thank you for your interest in the Companion PLUS! project! This document serves to explain how to use the application and device, as well as how to build your own.
 
-It works with:
+Companion PLUS! is an application for Android 12 onwards mobile phones, to be used with a specially formatted NFC game card and peripheral device. The most recent build of the application (CompanionPLUS.apk) can be downloaded from this repository directly to a mobile phone and installed.
 
+### Features
++ Tracking pet's steps along walks and storing as experience points to 'level' them up in-game
++ Contactless game data transfer between mobile phone application and peripheral device via game card
++ Low-powered and lightweight microcontroller-based device that allows for prolonged use on pet collar with minimal maintanance
++ Models designed for 3D printing in PLA, an eco-friendly and biodegradable plastic material
++ Open-source and easy to modify project files, using Adafruit's PN532 library for Arduino
+
+### Warnings 
+
+## Technical Information
+### Information on peripheral device libraries and hardware
+This project includes an Arduino library to use NFC technology with a PN532 module, including [Don's NDEF Library](http://goo.gl/jDjsXl). It is based on 
+[Adafruit_NFCShield_I2C](http://goo.gl/pk3FdB), improved by [Seeed Studio](http://goo.gl/zh1iQh), added HSU(High Speed Uart) driver by [Elechouse](http://elechouse.com), functionality for Nano 33 BLE boards by [liswifi](https://twitter.com/liswifi).
+
+### Supported PN532 modules
 + [Elechouse NFC Module](http://goo.gl/i0EQgd)
 + [Seeed Studio NFC Shield](http://goo.gl/Cac2OH)
 + [Xadow NFC](http://goo.gl/qBZMt0)
 + [Adafruit PN532 NFC/RFID controller breakout board](http://goo.gl/tby9Sw)
 
 ### Features
-+ Support all interfaces of PN532 (I2C, SPI, HSU )
++ IMU data to NDEF record payload conversion
++ Support all interfaces of PN532 (I2C, SPI, HSU)
 + Read/write Mifare Classic Card
-+ Works with [Don's NDEF Library](http://goo.gl/jDjsXl)
-+ Support Peer to Peer communication(exchange data with android 4.0+)
++ Support Peer-to-Peer communication(exchange data with android 4.0+)
 + Support [mbed platform](http://goo.gl/kGPovZ)
 + Support Arduino Nano 33 BLE
++ Game application support for reading NDEF record payload
++ Game manager with Save/Load features to easily store game data
 
 ### Getting Started
-1. **Download [zip file](https://github.com/nestrd/PN532SPI_Nano33BLE/archive/refs/heads/main.zip) and 
+1. **Download [zip file](https://github.com/nestrd/Companion-PLUS/archive/refs/heads/main.zip) and 
 extract the libraries(NDEF, PN532, PN532_SPI, PN532_HSU and PN532_I2C, PN532_SWHSU) into libraries directory of Arduino IDE.**
-2. Follow the examples of the PN532 library
+2. Open the Unity project in Unity 2021 LTS onwards to gain access to all game application project files
+3. Assemble peripheral device as per the below schematics and secure in 3D printed casing
+4. Connect Arduino Nano 33 BLE Sense Rev2 (microprocessor) to computer via USB and open Arduino IDE
+5. Compile and upload code to microprocessor, seal casing
+6. Secure peripheral device onto pet collar and switch on or off as required
 
-### To do
-+ Fix libraries for SPI card emulation compatibility for Arduino Nano 33 BLE boards
-
-## Nano 33 BLE Pin SPI Connection
+### Schematics for peripheral device
 + VIN <- VCC
 + GND <- GND
 + SCK <- SCK
@@ -35,45 +53,15 @@ extract the libraries(NDEF, PN532, PN532_SPI, PN532_HSU and PN532_I2C, PN532_SWH
 + D11 <- MOSI
 + D10 <- SS
 + D9 <- RTSO
++ VUSB <- 5V, 2A USB power
 
 ![Schematics](Schematics.png)
 
-## HSU Interface
-
-HSU is short for High Speed Uart. HSU interface needs only 4 wires to connect PN532 with Arduino, [Sensor Shield](http://goo.gl/i0EQgd) can make it more easier. For some Arduino boards like [Leonardo][Leonardo], [DUE][DUE], [Mega][Mega] ect, there are more than one `Serial` on these boards, so we can use this additional Serial to control PN532, HSU uses 115200 baud rate .
-
-To use the `Serial1` control PN532, refer to the code below.
-
-	#include <PN532_HSU.h>
-	#include <PN532.h>
-	
-	PN532_HSU pn532hsu(Serial1);
-	PN532 nfc(pn532hsu);
-
-	void setup(void)
-	{
-		nfc.begin();
-		//...
-	}
-
-If your Arduino has only one serial interface and you want to keep it for control or debugging with the Serial Monitor, you can use the [`SoftwareSerial`][SoftwareSerial] library to control the PN532 by emulating a serial interface. Include `PN532_SWHSU.h` instead of `PN532_HSU.h`:
-
-	#include <SoftwareSerial.h>
-	#include <PN532_SWHSU.h>
-	#include <PN532.h>
-	
-	SoftwareSerial SWSerial( 10, 11 ); // RX, TX
-
-	PN532_SWHSU pn532swhsu( SWSerial );
-	PN532 nfc( pn532swhsu );
-
-	void setup(void)
-	{
-		nfc.begin();
-		//...
-	}
-
-[Mega]: http://arduino.cc/en/Main/arduinoBoardMega
-[DUE]: http://arduino.cc/en/Main/arduinoBoardDue
-[Leonardo]: http://arduino.cc/en/Main/arduinoBoardLeonardo
-[SoftwareSerial]: https://www.arduino.cc/en/Reference/softwareSerial
+### Other resources
++ [Arduino Nano 33 BLE Sense Rev2](https://docs.arduino.cc/hardware/nano-33-ble-sense-rev2)
++ [Mega](http://arduino.cc/en/Main/arduinoBoardMega)
++ [DUE](http://arduino.cc/en/Main/arduinoBoardDue)
++ [Leonardo](http://arduino.cc/en/Main/arduinoBoardLeonardo)
++ [SoftwareSerial](https://www.arduino.cc/en/Reference/softwareSerial)
++ [Adafruit PN532 library](https://github.com/adafruit/Adafruit-PN532)
++ [elechouse PN532 library](https://github.com/elechouse/PN532)
