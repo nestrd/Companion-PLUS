@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public GameData gameData;
     #endregion
 
+    #region Variable Setup
     public Image expBar;
     public Image currentEmotion;
     public Sprite sadEmote;
@@ -45,13 +46,15 @@ public class GameManager : MonoBehaviour
     public Text stepsText;
     public Text dateText;
 
-    private bool canPlaySound;
+    private bool canPlaySound = true;
     public AudioClip successAlert;
     public AudioClip failAlert;
     public AudioClip toneD;
     public AudioClip toneA;
     public AudioClip toneCsh;
     private AudioSource asRef;
+
+    #endregion
 
     void Awake()
     {
@@ -86,16 +89,20 @@ public class GameManager : MonoBehaviour
             nameInput.text = petName;
         }
 
-        if (lastPlayed != System.DateTime.Now.ToShortDateString())
+        if (lastPlayed != System.DateTime.Now.ToShortDateString() && lastPlayed != System.DateTime.Now.AddDays(-1).ToShortDateString())
         {
             streak = 0;
             stepsToday = 0;
             SaveGame();
         }
+        if (lastPlayed != System.DateTime.Now.ToShortDateString()){
+            stepsToday = 0;
+            SaveGame();
+        }
 
-                streakString.text = streak.ToString();
+        streakString.text = streak.ToString();
+
     }
-
     void Update()
     {
         SetEmotion();
@@ -111,7 +118,6 @@ public class GameManager : MonoBehaviour
     {
         SaveProgress.SaveData(this);
     }
-
     public void LoadGame()
     {
         GameData data = SaveProgress.LoadData();
@@ -130,7 +136,6 @@ public class GameManager : MonoBehaviour
         currentExp = data.currentExp;
         totalExp = data.totalExp;
     }
-
     public void ResetGame()
     {
         GameData data = SaveProgress.LoadData();
@@ -164,28 +169,23 @@ public class GameManager : MonoBehaviour
         asRef.PlayOneShot(failAlert);
 
     }
-
     public void IncrementExp()
     {
         currentExp += 1;
 
     }
-
     public void OpenHelpPage()
     {
         Application.OpenURL("https://github.com/nestrd/Companion-PLUS");
     }
-
     public void OpenMaps()
     {
         Application.OpenURL("http://maps.google.com/maps");
     }
-
     public void OpenMainSite()
     {
         Application.OpenURL("https://nestrd.github.io/");
     }
-
     public void SetNewSteps()
     {
         if (lastPlayed != System.DateTime.Now.ToShortDateString()) {
@@ -196,7 +196,6 @@ public class GameManager : MonoBehaviour
 
         SaveGame();
     }
-
     private void SetEmotion()
     {
         switch (currentMood)
@@ -226,7 +225,6 @@ public class GameManager : MonoBehaviour
             currentMood = Mood.HAPPY;
         }
     }
-
     private void SetExp()
     {
         expBar.fillAmount = currentExp / 100;
@@ -245,7 +243,6 @@ public class GameManager : MonoBehaviour
             currentExp = stepsTotal / 100;
         }
     }
-
     public void SetStreak()
     {
         if(lastPlayed != System.DateTime.Now.ToShortDateString())
@@ -267,31 +264,54 @@ public class GameManager : MonoBehaviour
 
         }
     }
-
     public void SetName()
     {
         petName = nameInput.text;
 
         SaveGame();
     }
-
     public void SoundToneD()
     {
-        asRef.PlayOneShot(toneD);
+        if (canPlaySound)
+        {
+            asRef.PlayOneShot(toneD);
+            canPlaySound = false;
+            StartCoroutine(ResetAudio());
+        }
     }
-
     public void SoundToneA()
     {
-        asRef.PlayOneShot(toneA);
+        if (canPlaySound)
+        {
+            asRef.PlayOneShot(toneA);
+            canPlaySound = false;
+            StartCoroutine(ResetAudio());
+        }
     }
-
     public void SoundToneCsh()
     {
-        asRef.PlayOneShot(toneCsh);
+        if (canPlaySound)
+        {
+            asRef.PlayOneShot(toneCsh);
+            canPlaySound = false;
+            StartCoroutine(ResetAudio());
+        }
     }
-
     public void SoundToneFail()
     {
-        asRef.PlayOneShot(failAlert);
+        if (canPlaySound)
+        {
+            asRef.PlayOneShot(failAlert);
+            canPlaySound = false;
+            StartCoroutine(ResetAudio());
+        }
     }
+
+    IEnumerator ResetAudio()
+    {
+        yield return new WaitForSeconds(1);
+        yield return null;
+        canPlaySound = true;
+    }
+
 }

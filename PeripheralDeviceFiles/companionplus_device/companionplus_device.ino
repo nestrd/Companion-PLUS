@@ -47,17 +47,17 @@ int flopX = 0;
 int flopY = 0;
 int flopZ = 0;
 uint8_t totalSteps = 0;
-float accelerationSense = 50;
+float accelerationSense = 25;
 
 // Piezo buzzer tone
 #include "pitches.h"
 
 int melody[] = {
-  NOTE_A6, NOTE_D7, NOTE_G7
+  NOTE_A5, NOTE_D6, NOTE_G6, NOTE_A5, NOTE_A5
 };
 
 int noteDurations[] = {
-  8, 8, 8
+  8, 8, 8, 8, 4,
 };
 
 // Elechouse PN532 V3 module
@@ -187,13 +187,14 @@ void UpdateSteps (void){
     flopZ = 0;
     totalSteps += 1;
   }
-  //Serial.println(totalSteps);
+  Serial.print("Steps taken: ");
+  Serial.println(totalSteps);
   
   }
   delay(250);
 }
 
-// Read game card data, add to totalSteps on device
+// Read game card data, add to totalSteps on device (to be completed)
 //void ReadCard (void){
 //  uint8_t success;                          // Flag to check if there was an error with the PN532
 //  uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };  // Buffer to store the returned UID
@@ -427,7 +428,7 @@ void WriteCard (void){
 
 void PlaySong (void){
     digitalWrite(6, HIGH); // Turn on buzzer
-    for (int thisNote = 0; thisNote < 3; thisNote++) {
+    for (int thisNote = 0; thisNote < 5; thisNote++) {
 
     int noteDuration = 1000 / noteDurations[thisNote];
     tone(6, melody[thisNote], noteDuration);

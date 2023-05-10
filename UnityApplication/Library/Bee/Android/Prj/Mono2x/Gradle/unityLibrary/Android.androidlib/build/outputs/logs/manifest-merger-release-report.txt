@@ -1,0 +1,111 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:2:1-41:12
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:2:1-41:12
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:2:1-41:12
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:2:1-41:12
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:2:1-41:12
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:2:1-41:12
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:2:1-41:12
+	package
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:4:5-35
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:8:5-30
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:5:5-51
+	xmlns:android
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:3:5-63
+	android:versionCode
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:7:5-28
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+	android:installLocation
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:6:5-45
+uses-permission#android.permission.NFC
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:10:5-62
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:10:22-59
+uses-feature#android.hardware.nfc
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:12:5-14:33
+	android:required
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:14:7-30
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:13:7-42
+supports-screens
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:16:5-21:36
+	android:largeScreens
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:19:9-36
+	android:smallScreens
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:17:9-36
+	android:normalScreens
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:18:9-37
+	android:xlargeScreens
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:20:9-37
+	android:anyDensity
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:21:9-34
+application
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:23:2-40:19
+	android:label
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:25:9-41
+	android:theme
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:24:9-50
+activity#com.unity3d.player.UnityPlayerActivity
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:26:9-39:20
+	android:label
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:27:19-51
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:26:19-72
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:28:13-31:29
+action#android.intent.action.MAIN
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:29:17-69
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:29:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:30:17-77
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:30:27-74
+intent-filter#action:name:android.nfc.action.NDEF_DISCOVERED+action:name:android.nfc.action.TAG_DISCOVERED+action:name:android.nfc.action.TECH_DISCOVERED+category:name:android.intent.category.DEFAULT
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:32:4-37:29
+action#android.nfc.action.NDEF_DISCOVERED
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:33:17-77
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:33:25-74
+action#android.nfc.action.TECH_DISCOVERED
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:34:17-77
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:34:25-74
+action#android.nfc.action.TAG_DISCOVERED
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:35:17-76
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:35:25-73
+category#android.intent.category.DEFAULT
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:36:17-76
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:36:27-73
+meta-data#android.nfc.action.TECH_DISCOVERED
+ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:38:13-137
+	android:resource
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:38:74-113
+	android:value
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:38:114-134
+	android:name
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml:38:24-73
+uses-sdk
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+		ADDED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml
+		INJECTED from D:\Game development\Companion-PLUS\UnityApplication\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\Android.androidlib\AndroidManifest.xml

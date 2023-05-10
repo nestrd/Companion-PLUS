@@ -1900,7 +1900,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -830426264, guid: fcb1da5d655093547a4c61d6963ceaa2, type: 3}
+  m_Sprite: {fileID: -1883580655, guid: 6a29caccd7a9db2428dc6d40b84f7dbd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2155,7 +2155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 4.82605, y: -1000}
+  m_AnchoredPosition: {x: 4.82605, y: -1000.00006}
   m_SizeDelta: {x: 764.316, y: 93.603}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1439591069
@@ -2525,12 +2525,12 @@ MonoBehaviour:
   hasSaveData: 0
   petName: 
   petSize: 0
-  stepsToday: 0
+  stepsToday: 5000
   stepsTotal: 0
   streak: 0
   lastPlayed: 
   currentLevel: 0
-  currentExp: 0
+  currentExp: 5000
   totalExp: 0
   currentMood: 2
   gameData:
@@ -2973,9 +2973,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767237898}
-  m_LocalRotation: {x: -0.70710653, y: 0.00000001763844, z: 0.00000001763844, w: 0.7071071}
-  m_LocalPosition: {x: 0, y: -0.06, z: -0.01}
-  m_LocalScale: {x: 0.5, y: 0.001, z: 0.5}
+  m_LocalRotation: {x: -0.70710653, y: 0.000000047440764, z: -0.000000012163881, w: 0.70710707}
+  m_LocalPosition: {x: 0.0000000037252903, y: -0.060000006, z: -0.010000005}
+  m_LocalScale: {x: 0.49999994, y: 0.0010000006, z: 0.49999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653524725460}
