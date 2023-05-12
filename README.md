@@ -13,7 +13,31 @@ Companion PLUS! is an application for Android 12 onwards mobile phones, to be us
 + Models designed for 3D printing in PLA, an eco-friendly and biodegradable plastic material
 + Open-source and easy to modify project files, using Adafruit's PN532 library for Arduino
 
+### Setup
+#### Application
++ Download the application from the root of the repository files
++ Locate in your Android mobile phone's downloaded files and install
++ Ensure your phone's NFC capabilities are enabled (Android Settings) 
++ Open the application for the first time and name your pet's virtual avatar
++ Transfer game data from the device to your mobile phone using the game card
++ Application can only read game card once per day
+#### Device
++ Check the device is sufficiently charged before use
++ Remove pet's collar and loop through the device's strap
++ Turn on device via power button when taking pet on walks, tone will be heard
++ Turn off device by holding down the power button until LED turns off
++ To transfer game data, use device and hold game card over device until tone is heard
++ Turning off the device resets all game data held by the device!
+
 ### Warnings 
++ Not suitable for small pets - please try device on pet indoors and gauge their comfort before further use
++ Peripheral device casing designs for use only with dog collars
++ Be sure the device is fitted to the pet's collar securely
++ Do not operate the device near bodies of water or during rainfall
++ Do not submerge the device in water
++ Only open casing if device is powered off
++ If the owner or pet appear ill or other adverse effects occur, stop using device/application
++ Do not use device/application while pet is injured
 
 ## Technical Information
 ### Information on peripheral device libraries and hardware
@@ -46,14 +70,15 @@ extract the libraries(NDEF, PN532, PN532_SPI, PN532_HSU and PN532_I2C, PN532_SWH
 6. Secure peripheral device onto pet collar and switch on or off as required (see Warnings section in Game Guide above).
 
 ### Schematics for peripheral device
-+ VIN <- VCC
-+ GND <- GND
-+ SCK <- SCK
-+ D12 <- MISO
-+ D11 <- MOSI
-+ D10 <- SS
-+ D9 <- RTSO
-+ VUSB <- 5V, 2A USB power
++  VIN <-> VCC
++  GND <-> GND
++  SCK <-> SCK
++  D12 <-> MISO
++  D11 <-> MOSI
++  D10 <-> SS
++   D9 <-> RTSO
++   D6 <-> Piezo buzzer
++ VUSB <-> 5V, 2A USB power
 
 ![Schematics](Schematics.png)
 
