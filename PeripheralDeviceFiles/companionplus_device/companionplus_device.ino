@@ -46,7 +46,7 @@ int currentLoop = 0;
 int flopX = 0;
 int flopY = 0;
 int flopZ = 0;
-uint8_t totalSteps = 0;
+uint32_t totalSteps = 0;
 float accelerationSense = 25;
 
 // Piezo buzzer tone
