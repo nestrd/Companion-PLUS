@@ -54,6 +54,23 @@ public class GameManager : MonoBehaviour
     public AudioClip toneCsh;
     private AudioSource asRef;
 
+    //Levelling system
+    [SerializeField] private ParticleSystem levelup;
+    [SerializeField] private int[] expToNext =
+{
+        0,          //0
+        10000,      //1
+        25000,      //2
+        50000,      //3
+        100000,     //4
+        250000,     //5
+        500000,     //6
+        1000000,    //7
+        2500000,    //8
+        6000000,    //9
+        10000000    //10
+    };
+
     #endregion
 
     void Awake()
@@ -108,6 +125,8 @@ public class GameManager : MonoBehaviour
         SetEmotion();
 
         SetExp();
+
+        SetLevel();
 
         stepsText.text = stepsToday.ToString();
         streakString.text = streak.ToString();
@@ -241,6 +260,14 @@ public class GameManager : MonoBehaviour
         else
         {
             currentExp = stepsTotal / 100;
+        }
+    }
+    public void SetLevel()
+    {
+        if (currentExp > expToNext[currentLevel])
+        {
+            ++currentLevel;
+            Instantiate(levelup, transform.position, transform.rotation);
         }
     }
     public void SetStreak()

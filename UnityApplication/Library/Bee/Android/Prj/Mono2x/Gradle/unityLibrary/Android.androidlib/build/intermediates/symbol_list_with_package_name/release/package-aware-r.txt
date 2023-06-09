@@ -1,2 +1,0 @@
-com.nest.NFCManifest
-xml nfc_tech_filter

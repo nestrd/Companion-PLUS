@@ -4,10 +4,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveProgress {
 
+    const string download = "C:/Users/m020115k/Downloads";
+
     public static void SaveData (GameManager manager)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/gamedata.pet";
+        string path = download + "/gamedata.pet";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         GameData data = new GameData(manager);
@@ -18,7 +20,7 @@ public static class SaveProgress {
 
     public static GameData LoadData()
     {
-        string path = Application.persistentDataPath + "/gamedata.pet";
+        string path = download + "/gamedata.pet";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
